@@ -1,2 +1,2 @@
 # amugona-messenger
-AMUGONA team's preoject. Write a messenger application.
+AMUGONA developers' preoject. Write a messenger application.
