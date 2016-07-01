@@ -1,2 +1,2 @@
-# amugona-messenger
-AMUGONA developers' preoject. Write a messenger application.
+# JW-messenger
+Write a messenger web application.
