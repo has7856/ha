@@ -15,6 +15,11 @@
         .confirm {
             display: none;
         }
+
+        .theteam{
+            display:none;
+        }
+
     </style>
 </head>
 <body>
@@ -54,7 +59,7 @@
     <!-- (3) confirm details -->
     <div class="confirm">
         <h1>Confirm your details</h1>
-        <form>
+        <form id="ConfirmToTheTeam">
             <h5>Team name</h5>
             <h5>Team Web Address</h5>
             <h5>Name</h5>
@@ -63,6 +68,10 @@
         </form>
     </div>
 
+    <!-- page : The Team Page - Chat room -->
+    <div class="theteam">
+        <h1>My Team Page</h1>
+    </div>
 
 
 
@@ -74,7 +83,7 @@
         $('#MainToTeamName').submit(function (event) {
             $('.main').fadeOut();
             $('.teamname').show();
-            event.preventDefault();//새로고침이 되는것을 방지
+            event.preventDefault();//페이지 새로고침 안되도록
         });
 
         $('#TeamNameToName').submit(function (event) {
@@ -86,6 +95,12 @@
         $('#NameToConfirm').submit(function (event) {
             $('.name').fadeOut();
             $('.confirm').show();
+            event.preventDefault();
+        });
+
+        $('#ConfirmToTheTeam').submit(function (event) {
+            $('.confirm').fadeOut();
+            $('.theteam').show();
             event.preventDefault();
         });
 
