@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Messenger</title>
+    <title>JW-Messenger</title>
     <style>
         .teamname {
             display: none;
@@ -15,66 +15,95 @@
         .confirm {
             display: none;
         }
+
+        .theteam{
+            display:none;
+        }
+
     </style>
 </head>
 <body>
     <!-- page : HOME -->
     <div class="main">
         <h1>Wecome!</h1>
-        <input placeholder="id@domain.com" />
-        <button id="btnMainToTeamName">Create New Team</button>
+        <form id="MainToTeamName">
+            <input placeholder="id@domain.com" />
+            <button type="submit">Create New Team</button>
+        </form>
     </div>
 
     <!-- page : Create -->
     <!-- (1) Set TeamName and Web Address -->
     <div class="teamname">
         <h1>Name your team and set address</h1>
-        <input placeholder="Name" />
-        <input placeholder="Web Address" />
-        <button id="btnTeamNameToName">Next</button>
+        <form id="TeamNameToName">
+            <input placeholder="Name" />
+            <input placeholder="Web Address" />
+            <button type="submit">Next</button>
+        </form>
     </div>
 
     <!-- (2) Set Your name and Username -->
     <div class="name">
         <h1>What is your name?</h1>
-        <h5>Your name</h5>
-        <input placeholder="first name" />
-        <input placeholder="last name" />
-        <h5>Username</h5>
-        <input placeholder="Username" />
-        <button id="btnNameToConfirm">Next</button>
+        <form id="NameToConfirm">
+            <h5>Your name</h5>
+            <input placeholder="first name" />
+            <input placeholder="last name" />
+            <h5>Username</h5>
+            <input placeholder="Username" />
+            <button type="submit">Next</button>
+        </form>
     </div>
 
     <!-- (3) confirm details -->
     <div class="confirm">
         <h1>Confirm your details</h1>
-        <button id="btnConfirmToInvites">Create My Team</button>
+        <form id="ConfirmToTheTeam">
+            <h5>Team name</h5>
+            <h5>Team Web Address</h5>
+            <h5>Name</h5>
+            <h5>Email</h5>
+            <button type="submit">Create My Team</button>
+        </form>
     </div>
 
+    <!-- page : The Team Page - Chat room -->
+    <div class="theteam">
+        <h1>My Team Page</h1>
+    </div>
 
 
 
     <!-- 다음 단계로 진행하기 위해 버튼을 누르면 각 요소들을 fadeout/show하는 스크립트 -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script>
-        var $btnMainToTeamName = $('#btnMainToTeamName');
-        var $btnTeamNameToName = $('#btnTeamNameToName');
-        var $btnNameToConfirm = $('#btnNameToConfirm');
 
-        $btnMainToTeamName.click(function () {
+
+        $('#MainToTeamName').submit(function (event) {
             $('.main').fadeOut();
             $('.teamname').show();
+            event.preventDefault();//페이지 새로고침 안되도록
         });
 
-        $btnTeamNameToName.click(function () {
+        $('#TeamNameToName').submit(function (event) {
             $('.teamname').fadeOut();
             $('.name').show();
+            event.preventDefault();
         });
 
-        $btnNameToConfirm.click(function () {
+        $('#NameToConfirm').submit(function (event) {
             $('.name').fadeOut();
             $('.confirm').show();
+            event.preventDefault();
         });
+
+        $('#ConfirmToTheTeam').submit(function (event) {
+            $('.confirm').fadeOut();
+            $('.theteam').show();
+            event.preventDefault();
+        });
+
     </script>
 
 
