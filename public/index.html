@@ -16,10 +16,6 @@
             display: none;
         }
 
-        .theteam{
-            display:none;
-        }
-
     </style>
 </head>
 <body>
@@ -70,12 +66,6 @@
         </form>
     </div>
 
-    <!-- page : The Team Page - Chat room -->
-    <div class="theteam" id="theteam">
-        <h1>My Team Page</h1>
-    </div>
-
-
 
     <!-- 다음 단계로 진행하기 위해 버튼을 누르면 각 요소들을 fadeout/show하는 스크립트 -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -99,11 +89,6 @@
             event.preventDefault();
         });
 
-        $('#ConfirmToTheTeam').submit(function (event) {
-            $('.confirm').fadeOut();
-            $('.theteam').show();
-            event.preventDefault();
-        });
 
     </script>
 
