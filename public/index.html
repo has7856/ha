@@ -64,8 +64,8 @@
             <h5>Email</h5>
             <input type="text" readonly>
             <button type="submit">Create My Team</button>
-            
         </form>
+        <button type="button" id="btn">Create My Team botton</button>
     </div>
 
 
@@ -91,13 +91,25 @@
             event.preventDefault();
         });
 
+//        $(document).ready(function(){
+//            var tname;
+//            $('#ConfirmToTheTeam').submit(function (event) {
+//                //만들었던 팀도메인으로 가야한다.
+//
+//                tname = $('#aa').val();
+//                $.post("http://localhost:3000/grate", {teamname: tname}, function(data){
+//
+//                });
+//            });
+//        });        
+        
         $(document).ready(function(){
             var tname;
-            $('#ConfirmToTheTeam').submit(function (event) {
+            $('#btn').click(function (event) {
                 //만들었던 팀도메인으로 가야한다.
 
                 tname = $('#aa').val();
-                $.post("http://localhost:3000/great", {teamname: tname}, function(data){
+                $.post("http://localhost:3000/good", {teamname: tname}, function(data){
 
                 });
             });

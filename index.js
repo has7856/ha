@@ -17,9 +17,14 @@ app.get('/theteam',function(req, res, next){
 app.post('/great', function(req, res){
     var name = req.body.teamname;
     console.log(name);
-    res.end('yes');
+    res.end('great');
 });
 
+app.post('/good', function(req, res){
+    var name = req.body.teamname;
+    console.log(name);
+    res.send('good');
+});
 
 var server = app.listen(3000, function(){
     console.log('server started on port 3000');
