@@ -4,105 +4,43 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>JW-Messenger</title>
     <style>
-        .teamname {
-            display: none;
-        }
-
-        .name {
-            display: none;
-        }
-
-        .confirm {
-            display: none;
-        }
-
-        .theteam{
-            display:none;
-        }
 
     </style>
 </head>
 <body>
     <!-- page : HOME -->
     <div class="main" id="main">
+        
+        <!-- (1) 입력하는 페이지작성-->
         <h1>Wecome!</h1>
-        <form id="MainToTeamName">
-            <input placeholder="id@domain.com" />
+        
+        <form id="team">
+            <input placeholder="방이름" />
             <button type="submit">Create New Team</button>
+            <!-- 서버에 팀이름을 전송한다-->
         </form>
+        
     </div>
-
-    <!-- page : Create -->
-    <!-- (1) Set TeamName and Web Address -->
-    <div class="teamname" id="teamname">
-        <h1>Name your team and set address</h1>
-        <form id="TeamNameToName">
-            <h5>Team Name</h5>
-            <input placeholder="Name" />
-            <h5>Team Web Address</h5>
-            <input placeholder="Web Address" />
-            <button type="submit">Next</button>
-        </form>
-    </div>
-
-    <!-- (2) Set Your name and Username -->
-    <div class="name" id="name">
-        <h1>What is your name?</h1>
-        <form id="NameToConfirm">
-            <input placeholder="Username" />
-            <button type="submit">Next</button>
-        </form>
-    </div>
-
-    <!-- (3) confirm details -->
-    <div class="confirm" id="confirm">
-        <h1>Confirm your details</h1>
-        <form id="ConfirmToTheTeam">
-            <h5>Team name</h5>
-            <input type="text" readonly>
-            <h5>Team Web Address</h5>
-            <input type="text" readonly>
-            <h5>Name</h5>
-            <input type="text" readonly>
-            <h5>Email</h5>
-            <input type="text" readonly>
-            <button type="submit">Create My Team</button>
-        </form>
-    </div>
-
-    <!-- page : The Team Page - Chat room -->
-    <div class="theteam" id="theteam">
-        <h1>My Team Page</h1>
-    </div>
-
-
-
-    <!-- 다음 단계로 진행하기 위해 버튼을 누르면 각 요소들을 fadeout/show하는 스크립트 -->
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    
     <script>
+        
+        socket = io(); //소켓 생성
 
-        $('#MainToTeamName').submit(function (event) {
-            $('.main').fadeOut();
-            $('.teamname').show();
-            event.preventDefault();//페이지 새로고침 안되도록
-        });
-
-        $('#TeamNameToName').submit(function (event) {
-            $('.teamname').fadeOut();
-            $('.name').show();
+        $('form').submit(function (event) {
+            
+            var team = $('input').val();
+            
+            socket.emit('send team', team);
+            
             event.preventDefault();
         });
-
-        $('#NameToConfirm').submit(function (event) {
-            $('.name').fadeOut();
-            $('.confirm').show();
-            event.preventDefault();
-        });
-
-        $('#ConfirmToTheTeam').submit(function (event) {
-            $('.confirm').fadeOut();
-            $('.theteam').show();
-            event.preventDefault();
+        
+        socket.on('go to', function (data) {
+    // http://localhost/A
+     window.location.replace("http://localhost:3000/public/"+data);
         });
 
     </script>
