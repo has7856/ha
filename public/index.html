@@ -16,6 +16,7 @@
             display: none;
         }
 
+
     </style>
 </head>
 <body>
@@ -53,16 +54,17 @@
     <!-- (3) confirm details -->
     <div class="confirm" id="confirm">
         <h1>Confirm your details</h1>
-        <form id="ConfirmToTheTeam">
+        <form id="ConfirmToTheTeam" method="post" action="/great">
             <h5>Team name</h5>
             <input type="text" readonly>
             <h5>Team Web Address</h5>
-            <input type="text" readonly>
+            <input type="text" id="aa" value="Temporary" readonly>
             <h5>Name</h5>
             <input type="text" readonly>
             <h5>Email</h5>
             <input type="text" readonly>
             <button type="submit">Create My Team</button>
+            
         </form>
     </div>
 
@@ -89,6 +91,17 @@
             event.preventDefault();
         });
 
+        $(document).ready(function(){
+            var tname;
+            $('#ConfirmToTheTeam').submit(function (event) {
+                //만들었던 팀도메인으로 가야한다.
+
+                tname = $('#aa').val();
+                $.post("http://localhost:3000/great", {teamname: tname}, function(data){
+
+                });
+            });
+        });
 
     </script>
 
