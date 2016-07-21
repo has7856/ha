@@ -4,11 +4,81 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>JW-Messenger</title>
+    <style>
+        
+        #client_header{
+            padding : 5px;
+            background-color: orange;
+        }
+        #client_header div{
+            margin: 10px;
+            background-color: yellow;
+        }
+        
+        #client_body{
+            padding : 5px;
+            background-color: dodgerblue;
+        }
+        #client_body div{
+            margin: 10px;
+            background-color: aquamarine;
+        }
+        
+        #footer{
+            padding : 5px;
+            background-color: darkorchid;
+        }
+    
+    </style>
 </head>
 
 <body>
     <!-- page : The Team Page - Chat room -->
-    <div class="theteam" id="theteam">
-        <h1>My Team Page</h1> </div>
+    <div id="client-ui">
+        <h1>The Team Page</h1> 
+      
+        <div id="client_header">
+            <div id="team_menu">
+                
+                <p>Temporary</p>
+                <p>홍길동</p>
+                
+            </div>
+            <div id="channel_header">
+                <div id="channel_title">
+                    <h2>general</h2>
+                    <span>2명</span>
+                    <span>|</span>
+                    <span>공지사항 채널입니다.</span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="client_body">
+            <div id="col_channels">
+                
+                <ul>
+                    <li>#general</li>
+                    <li>#random</li>
+                </ul>
+            </div>
+            <div id="messages_container">
+                <div id="msgs_div">
+                    <div>메세지 내용</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="footer">
+            <div id="message-input-container">
+                <form id="message-form">
+                    <textarea id="message-input" placeholder="채팅 내용"></textarea>
+                </form>
+                
+            </div>
+            
+        </div>
+    
+    </div>
 </body>
 </html>
