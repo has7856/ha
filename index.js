@@ -10,21 +10,11 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname+'/public'));
 //public 디렉토리에 존재하는 파일을 찾기위해 routing table에 항목을 하나 추가한다.
 
-app.get('/theteam',function(req, res, next){
+app.post('/theteam',function(req, res, next){
+    var teamname = req.body.teamname;
+    console.log(teamname);
     res.sendFile(__dirname+'/public/theteam.html');
 })
-
-app.post('/great', function(req, res){
-    var name = req.body.teamname;
-    console.log(name);
-    res.end('great');
-});
-
-app.post('/good', function(req, res){
-    var name = req.body.teamname;
-    console.log(name);
-    res.send('good');
-});
 
 var server = app.listen(3000, function(){
     console.log('server started on port 3000');
