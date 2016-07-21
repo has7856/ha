@@ -12,7 +12,11 @@ app.use(express.static(__dirname+'/public'));
 
 app.post('/theteam',function(req, res, next){
     var teamname = req.body.teamname;
-    console.log(teamname);
+    var url = req.body.url;
+    var name = req.body.name;
+    var email = req.body.email;
+    
+    console.log(teamname+'/'+url+'/'+name+'/'+email);
     res.sendFile(__dirname+'/public/theteam.html');
 })
 

@@ -56,13 +56,13 @@
         <h1>Confirm your details</h1>
         <form id="ConfirmToTheTeam" method="post" action="/theteam">
             <h5>Team name</h5>
-            <input type="text" readonly>
+            <input type="text" id="team_name" value="AbcTeam" readonly>
             <h5>Team Web Address</h5>
-            <input type="text" id="team_name" value="Temporary" readonly>
+            <input type="text" id="team_addr" value="abc" readonly>
             <h5>Name</h5>
-            <input type="text" readonly>
+            <input type="text" id="user_name" value="Hong gil dong" readonly>
             <h5>Email</h5>
-            <input type="text" readonly>
+            <input type="text" id="email" value="gil@good.com" readonly>
             <button type="submit" id="btn">Create My Team</button>
         </form>
 <!--        <button type="button" id="btn">Create My Team botton</button>-->
@@ -72,7 +72,9 @@
     <!-- 다음 단계로 진행하기 위해 버튼을 누르면 각 요소들을 fadeout/show하는 스크립트 -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script>
-
+        
+        
+    
         $('#MainToTeamName').submit(function (event) {
             $('.main').fadeOut();
             $('.teamname').show();
@@ -91,15 +93,36 @@
             event.preventDefault();
         });
         
-        $(document).ready(function(){
-            var tname;
-            $('#btn').click(function (event) {
-                tname = $('#team_name').val();
-                $.post("http://localhost:3000/theteam", {teamname: tname}, function(data){
+        var tname;
+        var taddr;
+        var uname;
+        var email;
+        
+        $('#ConfirmToTheTeam').submit(function (event) {
+            tname = $('#team_name').val();
+                taddr = $('#team_addr').val();
+                uname = $('#user_name').val();
+                email = $('#email').val();
+                $.post("http://localhost:3000/theteam", {teamname: tname, url: taddr, name: uname, email: email}, function(data){                   
 
                 });
-            });
         });
+        
+//        $(document).ready(function(){
+//            var tname;
+//            var taddr;
+//            var uname;
+//            var email;
+//            $('#btn').click(function (event) {
+//                tname = $('#team_name').val();
+//                taddr = $('#team_addr').val();
+//                uname = $('#user_name').val();
+//                email = $('#email').val();
+//                $.post("http://localhost:3000/theteam", {teamname: tname, url: taddr, name: uname, email: email}, function(data){
+//
+//                });
+//            });
+//        });
 
     </script>
 
